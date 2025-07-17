@@ -1,0 +1,173 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>UrbanRide - Rent & Share Cars</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"/>
+     
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+    <link href="~/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="~/css/all.min.css"/>
+
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+    <style>
+        /* Slim, Sleek Black Navbar */
+        .navbar-custom {
+            background-color: #000;
+            border-radius: 10px;
+            padding: 3px 15px;
+            margin: 25px 60px;
+            box-shadow: 0px 2px 12px rgba(0, 38, 84, 0.9);
+        }
+
+
+            /* Navbar Brand Styling */
+
+            .navbar-custom .navbar-brand {
+                color: #fff;
+                font-size: 1.4rem;
+                font-family: 'Berlin Sans FB';
+            }
+
+            /* Navbar Links */
+            .navbar-custom .nav-link {
+                color: #fff;
+                font-size: 0.95rem;
+                padding: 5px 12px; /* Reduced padding for slim layout */
+                transition: color 0.3s ease;
+                font-weight: bold;
+            }
+
+                .navbar-custom .nav-link:hover {
+                    color: red;
+                }
+                /* Styled Buttons for Login & Profile */
+                .navbar-custom .nav-link.btn-custom {
+                    background-color: red;
+                    color: #fff !important;
+                    padding: 6px 15px; /* Comfortable padding */
+                    border-radius: 20px; /* Rounded corners */
+                    font-weight: 600;
+                    transition: background 0.3s ease-in-out;
+                    display: inline-block;
+                    text-align: center;
+                }
+
+                    /* Hover Effect */
+                    .navbar-custom .nav-link.btn-custom:hover {
+                        color: #fff;
+                        font-weight: bold;
+                    }
+
+        .logo {
+            height: 30px;
+            width: 30px;
+            color: white;
+        }
+
+        .footer {
+            font-weight: bold;
+        }
+
+        /* Navbar Responsive Adjustments */
+        @media (max-width: 768px) {
+            .navbar-custom {
+                padding: 5px 15px;
+                margin: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <form id="form1" runat="server">
+        <!-- Navigation Bar -->
+        <div class="nav-con">
+        <nav class="navbar navbar-expand-lg navbar-custom  fixed-top">
+            <a class="navbar-brand" href="Default.aspx">
+                <img src="images/logo.png" class="logo" />
+                <span class="logo">UrbanRide</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="Default.aspx">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="listing.aspx">List Your Car</a></li>
+                    <li class="nav-item"><a class="nav-link" href="MyBookings.aspx">My Bookings</a></li>
+                    <li class="nav-item"><a class="nav-link" href="AboutUs.aspx">About</a></li>
+                    <li class="nav-item" id="loginLink" runat="server"><a class="nav-link btn-custom" href="login.aspx">Login</a></li>
+                    <li class="nav-item" id="profileLink" runat="server"><a class="nav-link btn-custom" href="MyProfile.aspx">Profile</a></li>
+
+
+                </ul>
+            </div>
+        </nav>
+        </div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+
+
+
+
+        <!-- Modern Light Footer -->
+        <footer class="bg-light text-dark py-4">
+            <div class="container">
+                <div class="row align-items-center text-center text-md-left">
+
+                    <!-- Left: UrbanRide Logo & About -->
+                    <div class="col-md-4 d-flex align-items-center justify-content-md-start justify-content-center">
+                        <img src="images/logo.png" alt="UrbanRide Logo" style="height: 35px; margin-right: 10px;">
+                        <div>
+                            <h5 class="mb-0 font-weight-bold">UrbanRide</h5>
+                            <p class="small mb-0">Your trusted platform to rent and share cars effortlessly.</p>
+                        </div>
+                    </div>
+
+                    <!-- Center: Follow Us -->
+                    <div class="col-md-4 text-center">
+                        <h6 class="text-uppercase font-weight-bold mb-0">Follow Us</h6>
+                        <div class="d-flex justify-content-center mt-2">
+                            <a href="#" class="mx-2" style="color: #3b5998;"><i class="fab fa-facebook fa-lg"></i></a>
+                            <!-- Facebook -->
+                            <a href="#" class="mx-2" style="color: black;"><i class="fab fa-x-twitter fa-lg"></i></a>
+                            <!-- X (Twitter) -->
+                            <a href="#" class="mx-2" style="color: #E4405F;"><i class="fab fa-instagram fa-lg"></i></a>
+                            <!-- Instagram -->
+                            <a href="#" class="mx-2" style="color: #0077b5;"><i class="fab fa-linkedin fa-lg"></i></a>
+                            <!-- LinkedIn -->
+                        </div>
+                    </div>
+
+                    <!-- Right: Contact Us -->
+                    <div class="col-md-4 text-md-right text-center">
+                        <h6 class="text-uppercase font-weight-bold mb-0">Contact Us</h6>
+                        <p class="small mt-2 mb-0"><i class="fas fa-envelope"></i> Urbanride@gmail.com</p>
+                        <p class="small mb-0"><i class="fas fa-phone"></i> +91 9723859011</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="text-center small mt-4  bg-white footer">
+                &copy; 2025 UrbanRide. All Rights Reserved.
+            </div>
+        </footer>
+
+
+
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
